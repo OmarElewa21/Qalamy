@@ -5,7 +5,7 @@
     <!--================================
          START SLIDER AREA
 =================================-->
-    <section class="slider-area slider-area2">
+    <section class="slider-area slider-area2" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
         <div class="homepage-slide2">
             @foreach($sliders as $item)
                 <div class="single-slide-item" style="background-image: url({{filePath($item->image)}});}">
@@ -14,11 +14,22 @@
                         <div class="slide-item-tablecell">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-lg-8">
+                                    <div class="col-12 text-center">
                                         <div class="section-heading">
-                                            <h2 class="section__title">{{$item->title}}</h2>
-                                            <p class="section__desc">
-                                                {{$item->sub_title}}
+                                            <h2 class="section__title">
+                                                @if ($item->title == "Course LMS, best online learning platform")
+                                                    @translate(Course LMS, best online learning platform)
+                                                @else
+                                                    {{$item->title}}
+                                                @endif
+                                                
+                                            </h2>
+                                            <p class="section__desc" style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}">
+                                                @if ($item->sub_title == "Find your course and start learning")
+                                                    @translate(Find your course and start learning)
+                                                @else
+                                                    {{$item->sub_title}}
+                                                @endif
                                             </p>
                                         </div>
                                         <div class="hero-search-form">
@@ -30,7 +41,7 @@
                                                             <input class="form-control" id="slider-search" type="text"
                                                                    name="search"
                                                                    placeholder="@translate(Search for anything)">
-                                                            <span class="la la-search search-icon"></span>
+                                                            <span class="la la-search search-icon" style="{{(App::isLocale('ar') ? 'position:relative; right: 48%; bottom:25px;' : '')}}"></span>
 
                                                             <!-- Search bar END - -->
 
@@ -254,7 +265,7 @@
                             @endforeach
 
                         </ul>
-                        <div class="card-action">
+                        <div class="card-action {{(App::isLocale('ar') ? 'text-right' : '')}}" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
                             <ul class="card-duration d-flex justify-content-between align-items-center">
                                 <li><span class="meta__date"><i
                                             class="la la-play-circle"></i> {{$l_c_tooltip->classes->count()}} @translate(Classes)</span>
@@ -291,16 +302,16 @@
     ======================================-->
     <section class="category-area padding-bottom-90px padding-top-90px">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-9">
+            <div class="row" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
+                <div class="{{(App::isLocale('ar') ? 'col-lg-12 text-center' : 'col-lg-9')}}">
                     <div class="section-heading">
                         <h5 class="section__meta">@translate(Categories)</h5>
                         <h2 class="section__title">@translate(Popular Categories)</h2>
                         <span class="section-divider"></span>
                     </div><!-- end section-heading -->
                 </div><!-- end col-lg-9 -->
-                <div class="col-lg-3">
-                    <div class="btn-box h-100 d-flex align-items-center justify-content-end">
+                <div class="{{(App::isLocale('ar') ? 'col-lg-12' : 'col-lg-3')}}">
+                    <div class="btn-box h-100 d-flex align-items-center {{(App::isLocale('ar') ? 'justify-content-center' : 'justify-content-end')}}">
                         <a href="{{route('course.filter')}}" class="theme-btn">@translate(all Categories)</a>
                     </div><!-- end btn-box-->
                 </div>
@@ -348,7 +359,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tab margin-top-28px margin-bottom-55px">
-                            <ul class="nav nav-tabs justify-content-center text-center" role="tablist" id="review">
+                            <ul class="nav nav-tabs justify-content-center text-center" role="tablist" id="review" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
                                 @php
                                     $i=0;
                                 @endphp
@@ -494,7 +505,7 @@
                                                 <div class="tooltip_templates">
                                                     <div id="tooltip_content_{{$c_tooltip->id}}">
                                                         <div class="card-item">
-                                                            <div class="card-content">
+                                                            <div class="card-content {{(App::isLocale('ar') ? 'text-right' : '')}}" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
                                                                 <p class="card__author">
                                                                     By <a
                                                                         href="{{route('single.instructor',$c_tooltip->relationBetweenInstructorUser->slug)}}">{{$c_tooltip->relationBetweenInstructorUser->name}}</a>
@@ -715,7 +726,7 @@
         <div class="tooltip_templates">
             <div id="tooltip_content_{{$t_tooltip->id}}">
                 <div class="card-item">
-                    <div class="card-content">
+                    <div class="card-content {{(App::isLocale('ar') ? 'text-right' : '')}}" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
                         <p class="card__author">
                             @translate(By) <a
                                 href="{{route('single.instructor',$t_tooltip->relationBetweenInstructorUser->slug)}}">{{$t_tooltip->relationBetweenInstructorUser->name}}</a>
@@ -823,8 +834,7 @@
                 <div class="col-lg-12">
                     <div class="section-heading">
                         <h5 class="section__meta">@translate(become an instructor)</h5>
-                        <h2 class="section__title">@translate(Available) {{getSystemSetting('type_name')->value}}
-                            @translate(Packages)</h2>
+                        <h2 class="section__title">@translate(Available Packages)</h2>
                         <span class="section-divider"></span>
                     </div><!-- end section-heading -->
                 </div><!-- end col-md-12 -->
@@ -852,12 +862,12 @@
                 <div class="col-lg-12">
                     <div class="btn-box mt-3 d-flex align-items-center justify-content-center text-left">
                         <div class="btn-box-inner mr-3">
-                            <span class="d-block mb-2 font-weight-semi-bold">@translate(Are you instructor?)</span>
+                            <span class="d-block mb-2 font-weight-semi-bold {{(App::isLocale('ar') ? 'text-center' : '')}}">@translate(Are you instructor?)</span>
                             <a href="{{route('instructor.register')}}" class="theme-btn line-height-40 text-capitalize">@translate(Start teaching)</a>
                         </div>
                         @guest
                             <div class="btn-box-inner">
-                                <span class="d-block mb-2 font-weight-semi-bold">@translate(Are you student?)</span>
+                                <span class="d-block mb-2 font-weight-semi-bold {{(App::isLocale('ar') ? 'text-center' : '')}}">@translate(Are you student?)</span>
                                 <a href="{{route('login')}}" class="theme-btn line-height-40 text-capitalize">@translate(Start learning)</a>
                             </div>
                         @endguest

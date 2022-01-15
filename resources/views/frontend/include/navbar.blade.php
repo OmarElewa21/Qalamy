@@ -1,4 +1,4 @@
-<div class="header-menu-content">
+<div class="header-menu-content" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
     <div class="container-fluid">
         <div class="main-menu-content">
             <div class="row align-items-center h-100">
@@ -12,12 +12,12 @@
                         <div class="header-category">
                             <ul>
                                 <li>
-                                    <a href="{{ route('course.filter') }}"><i class="fa fa-th p-2"></i>@translate(Categories)</a>
+                                    <a href="{{ route('course.filter') }}" style="{{App::isLocale('ar') ? 'position:relative; right:120%;' : ''}}"><i class="fa fa-th p-2"></i>@translate(Categories)</a>
                                     <ul class="dropdown-menu-item">
                                         @foreach(categories() as $item)
                                             <li>
                                                 @if($item->child->count() != 0)
-                                                    <span class="la la-angle-right menu-collapse"></span>
+                                                    <span class="la {{App::isLocale('ar') ? 'la-angle-left' : 'la-angle-right'}} menu-collapse"></span>
                                                 @endif
                                                 <a href="{{route('course.category',$item->slug)}}">{{$item->name}}</a>
                                                 @if($item->child->count() != 0)
@@ -42,11 +42,12 @@
                         <div class="contact-form-action search-form-action m-auto">
                             <form>
                                 <div class="input-box">
-                                    <div class="form-group">
+                                    <div class="form-group" style="{{(App::isLocale('ar') ? 'position:relative; top:25px;' : '')}}">
                                         <!-- Search bar -->
                                         <input class="form-control" id="search" type="text" name="search"
-                                               placeholder="@translate(Search for anything)">
-                                        <span class="la la-search search-icon"></span>
+                                               placeholder="@translate(Search for anything)"
+                                               style="{{(App::isLocale('ar') ? 'text-align:right' : '')}}">
+                                        <span class="la la-search search-icon" style="{{(App::isLocale('ar') ? 'position:relative; right: 1%; bottom:23px;' : '')}}"></span>
 
                                         <!-- Search bar END - -->
 
@@ -710,3 +711,19 @@
 </ul>
 {{-- bottom responsive menu --}}
 @endauth
+
+@if (App::isLocale('ar'))
+    <style>
+        .logo-box .header-category ul li .dropdown-menu-item{
+            right: 0% !important;
+            text-align: right !important;
+        }
+        .logo-box .header-category ul li .dropdown-menu-item .la {
+            right: 90% !important;
+        }
+        .logo-box .header-category ul li .dropdown-menu-item li .sub-menu{
+            left: -282px !important;
+            text-align: left !important;
+        }
+    </style>
+@endif

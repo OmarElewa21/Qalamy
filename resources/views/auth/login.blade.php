@@ -106,7 +106,7 @@
   @elseif(false)
 
   @else
-      <section class="login-area section--padding">
+      <section class="login-area section--padding" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
           <div class="container">
               <div class="row">
                   <div class="col-lg-7 mx-auto">
@@ -127,7 +127,7 @@
                               <div class="contact-form-action">
                                   <form method="post" action="{{ route('login') }}">
                                       @csrf
-                                      <div class="row">
+                                      <div class="row {{App::isLocale('ar') ? 'text-right' : ''}}">
                                           @if(env('GOOGLE_APP_ID') != "")
                                               <div class="col-12">
                                                   <div class="form-group">
@@ -159,7 +159,7 @@
                                                   </div>
                                               @endif
                                           <div class="col-lg-12">
-                                              <div class="input-box">
+                                              <div class="input-box {{App::isLocale('ar') ? 'text-right' : ''}}">
                                                   <label class="label-text">@translate(Email)<span class="primary-color-2 ml-1">*</span></label>
                                                   <div class="form-group">
                                                       <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="@translate(Email)" required value="{{ old('email') }}">
@@ -175,7 +175,7 @@
                                               </div>
                                           </div><!-- end col-md-12 -->
                                           <div class="col-lg-12">
-                                              <div class="input-box">
+                                              <div class="input-box {{App::isLocale('ar') ? 'text-right' : ''}}">
                                                   <label class="label-text">@translate(Password)<span class="primary-color-2 ml-1">*</span></label>
                                                   <div class="form-group">
                                                       <input id="pass" class="form-control @error('password') is-invalid @enderror" type="password" name="password" placeholder="@translate(Password)" required>
@@ -195,7 +195,7 @@
                                                   <div class="custom-checkbox d-flex justify-content-between">
                                                       <input type="checkbox" id="chb1" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                                       <label for="chb1">@translate(Remember Me)</label>
-                                                      <a href="{{route('student.password.reset')}}" class="primary-color-2"> @translate(Forgot my password)?</a>
+                                                      <a href="{{route('student.password.reset')}}" class="primary-color-2"> @translate(Forgot my password?)</a>
                                                   </div>
                                               </div>
                                           </div><!-- end col-md-12 -->
@@ -205,7 +205,7 @@
                                               </div>
                                           </div><!-- end col-md-12 -->
                                           <div class="col-lg-12">
-                                              <p class="mt-4">@translate(Don't have an account)? <a href="{{ route('student.register') }}" class="primary-color-2">@translate(Register)</a></p>
+                                              <p class="mt-4">@translate(Don't have an account?) <a href="{{ route('student.register') }}" class="primary-color-2">@translate(Register)</a></p>
                                           </div><!-- end col-md-12 -->
                                       </div><!-- end row -->
                                   </form>

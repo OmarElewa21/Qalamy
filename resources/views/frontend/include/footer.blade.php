@@ -3,7 +3,7 @@
     <!-- ================================
            Start FOOTER AREA
   ================================= -->
-    <section class="footer-area section-bg-2 padding-top-100px padding-bottom-40px {{ request()->is('student/*') ? 'student-dashboard' : '' }}">
+    <section class="footer-area section-bg-2 padding-top-100px padding-bottom-40px {{ request()->is('student/*') ? 'student-dashboard' : '' }}" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
         <div class="container">
             <div class="row">
                 <div class="{{ request()->is('student/*') ? 'col-lg-3 offset-md-2' : 'col-lg-4' }} column-td-half">

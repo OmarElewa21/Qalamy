@@ -19,12 +19,12 @@
                                     $x = 2;
                                 @endphp
                                 @if ($x <= count(Request::segments()))
-                                    {{str_replace('-', ' ',ucfirst(Request::segment(2)))}}
+                                    {{__(str_replace('-', ' ',ucfirst(Request::segment(2))))}}
                                 @else
                                     @if($breadcrumb != null)
                                         {{$breadcrumb}}
                                         @else
-                                        {{str_replace('-', ' ',ucfirst(Request::segment(1)))}}
+                                        {{__(str_replace('-', ' ',ucfirst(Request::segment(1))))}}
                                     @endif
                                 @endif
 
@@ -38,7 +38,7 @@
                                 <li class="bread-item">
                                     <a href="{{ URL::to( implode( '/', array_slice(Request::segments(), 0 ,$i, true)))}}">
 
-                                        {{str_replace('-', ' ',ucfirst(Request::segment($i)))}}
+                                        {{__(str_replace('-', ' ',ucfirst(Request::segment($i))))}}
                                     </a>
                                 </li>
                             @endfor
@@ -64,10 +64,10 @@
     ======================================-->
     <section class="course-area padding-top-80px padding-bottom-120px">
         <div class="course-wrapper">
-            <div class="container">
+            <div class="container" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="filter-bar d-flex justify-content-between align-items-center">
+                        <div class="filter-bar d-flex justify-content-between align-items-end" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
 
                             <ul class="filter-bar-tab nav nav-tabs align-items-center" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -97,7 +97,7 @@
                             <div class="sidebar">
                                 <form method="get" action="{{route('course.filter')}}" id="filter">
                                     <!--Category -->
-                                    <div class="sidebar-widget">
+                                    <div class="sidebar-widget {{(App::isLocale('ar') ? 'text-right' : '')}}">
                                         <h3 class="widget-title">@translate(Categories)</h3>
                                         <span class="section-divider"></span>
                                         <ul class="filter-by-category">
@@ -141,7 +141,7 @@
 
 
                                     <!--Level-->
-                                    <div class="sidebar-widget">
+                                    <div class="sidebar-widget {{(App::isLocale('ar') ? 'text-right' : '')}}">
                                         <h3 class="widget-title">@translate(Level)</h3>
                                         <span class="section-divider"></span>
                                         <ul class="filter-by-level">
@@ -176,7 +176,7 @@
                                     </div>
 
                                     <!---Language-->
-                                    <div class="sidebar-widget">
+                                    <div class="sidebar-widget {{(App::isLocale('ar') ? 'text-right' : '')}}">
                                         <h3 class="widget-title">@translate(Language)</h3>
                                         <span class="section-divider"></span>
                                         <div class="sort-ordering">
@@ -193,7 +193,7 @@
 
 
                                     <!--Cast--->
-                                    <div class="sidebar-widget">
+                                    <div class="sidebar-widget {{(App::isLocale('ar') ? 'text-right' : '')}}">
                                         <h3 class="widget-title">@translate(By Cost)</h3>
                                         <span class="section-divider"></span>
                                         <ul class="filter-by-price">
@@ -229,7 +229,7 @@
 
 
                                     <!-- All instructor -->
-                                    <div class="sidebar-widget">
+                                    <div class="sidebar-widget {{(App::isLocale('ar') ? 'text-right' : '')}}">
                                         <h3 class="widget-title">@translate(Instructors)</h3>
                                         <span class="section-divider"></span>
                                         <div class="sort-ordering">

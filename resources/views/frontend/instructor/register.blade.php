@@ -4,7 +4,7 @@
        START SIGN UP AREA
 ================================= -->
 <section class="sign-up section--padding">
-    <div class="container">
+    <div class="container" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="card-box-shared">
@@ -15,7 +15,7 @@
                         <div class="contact-form-action">
                             <form method="post" action="{{ route('instructor.create') }}">
                                 @csrf
-                                <div class="row">
+                                <div class="row {{App::isLocale('ar') ? 'text-right' : ''}}">
                                     {{--Radio button--}}
                                     <label class="label-text">@translate(Select A Package)<span class="primary-color-2 ml-1">*</span></label>
                                     <div class="row">
@@ -51,7 +51,7 @@
                                         <div class="input-box">
                                             <label class="label-text">@translate(Full Name)<span class="primary-color-2 ml-1">*</span></label>
                                             <div class="form-group">
-                                                <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="Full name" required value="{{ old('name') }}">
+                                                <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="{{__('Full name')}}" required value="{{ old('name') }}">
                                                 <span class="la la-user input-icon"></span>
 
                                                 @error('name')
@@ -68,7 +68,7 @@
                                         <div class="input-box">
                                             <label class="label-text">@translate(Email Address)<span class="primary-color-2 ml-1">*</span></label>
                                             <div class="form-group">
-                                                <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="Email address" required value="{{ old('email') }}">
+                                                <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="{{__('Email address')}}" required value="{{ old('email') }}">
                                                 <span class="la la-envelope input-icon"></span>
 
                                                 @error('email')
@@ -84,8 +84,8 @@
                                         <div class="input-box">
                                             <label class="label-text">@translate(Password)<span class="primary-color-2 ml-1">*</span></label>
                                             <div class="form-group">
-                                                <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" placeholder="Password" required>
-                                                <small id="emailHelp" class="form-text text-muted">Password minimum 8 characters.</small>
+                                                <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" placeholder="{{__('Password')}}" required>
+                                                <small id="emailHelp" class="form-text text-muted">@translate(Password minimum 8 characters.)</small>
                                                 <span class="la la-lock input-icon"></span>
 
                                                 @error('password')
@@ -102,7 +102,7 @@
                                         <div class="input-box">
                                             <label class="label-text">@translate(Confirm Password)<span class="primary-color-2 ml-1">*</span></label>
                                             <div class="form-group">
-                                                <input class="form-control @error('confirm_password') is-invalid @enderror" type="password" name="confirm_password" placeholder="Confirm password" required>
+                                                <input class="form-control @error('confirm_password') is-invalid @enderror" type="password" name="confirm_password" placeholder="@translate(Confirm password)" required>
                                                 <span class="la la-lock input-icon"></span>
 
                                                 @error('confirm_password')
@@ -121,7 +121,7 @@
                                         </div>
                                     </div><!-- end col-md-12 -->
                                     <div class="col-lg-12">
-                                        <p class="mt-4">@translate(Already have an account)? <a href="{{ route('login') }}" class="primary-color-2">@translate(Log in)</a></p>
+                                        <p class="mt-4">@translate(Already have an account?) <a href="{{ route('login') }}" class="primary-color-2">@translate(Log in)</a></p>
                                     </div><!-- end col-md-12 -->
                                 </div><!-- end row -->
                             </form>

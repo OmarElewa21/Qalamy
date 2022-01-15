@@ -133,7 +133,7 @@
                             @endphp
                             @foreach($cat as $item)
                                 <li class="{{$i == 0 ? 'active':''}}"
-                                    data-filter="{{$i == 0 ? '*':'.tab-'.$i}}">{{$item == "Best Selling" ? 'All Course' :$item }}</li>
+                                    data-filter="{{$i == 0 ? '*':'.tab-'.$i}}">{{$item == __("Best Selling") ? 'All Course' :$item }}</li>
                                 <span class="invisible">{{$i++}}</span>
                             @endforeach
                         </ul>

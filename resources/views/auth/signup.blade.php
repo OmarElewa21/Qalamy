@@ -138,7 +138,7 @@
         <section class="sign-up section--padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7 mx-auto">
+                    <div class="col-lg-7 mx-auto" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
                         <div class="card-box-shared">
                             <div class="card-box-shared-title text-center">
                                 <h3 class="widget-title font-size-35">@translate(Create an Account and) <br>
@@ -148,7 +148,7 @@
                                 <div class="contact-form-action">
                                     <form method="post" action="{{ route('student.create') }}">
                                         @csrf
-                                        <div class="row">
+                                        <div class="row {{App::isLocale('ar') ? 'text-right' : ''}}">
                                             @if(env('GOOGLE_APP_ID') != "")
                                                 <div class="col-lg-4 offset-md-4 column-td-half">
                                                     <div class="form-group">
@@ -164,7 +164,7 @@
                                                     </div>
                                                 </div><!-- end col-md-12 -->
                                             @endif
-                                            <div class="col-lg-12 ">
+                                            <div class="col-lg-12">
                                                 <div class="input-box">
                                                     <label class="label-text">@translate(Full Name)<span
                                                             class="primary-color-2 ml-1">*</span></label>
@@ -234,7 +234,7 @@
                                                         <input
                                                             class="form-control @error('confirmed') is-invalid @enderror"
                                                             type="password" name="confirmed"
-                                                            placeholder="@translate(Confirm password)" required>
+                                                            placeholder="{{__(Confirm password)}}" required>
                                                         <span class="la la-lock input-icon"></span>
 
                                                         @error('confirmed')
@@ -254,9 +254,10 @@
                                                 </div>
                                             </div><!-- end col-md-12 -->
                                             <div class="col-lg-12">
-                                                <p class="mt-4">@translate(Already have an account)? <a
-                                                        href="{{ route('login') }}" class="primary-color-2">@translate(Log
-                                                        in)</a></p>
+                                                <p class="mt-4">@translate(Already have an account?) <a
+                                                        href="{{ route('login') }}" class="primary-color-2">
+                                                        @translate(Log in)
+                                                    </a></p>
                                             </div><!-- end col-md-12 -->
                                         </div><!-- end row -->
                                     </form>

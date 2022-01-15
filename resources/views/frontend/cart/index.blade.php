@@ -4,7 +4,7 @@
     <!-- ================================
       START CART AREA
   ================================= -->
-    <section class="cart-area padding-top-120px padding-bottom-60px">
+    <section class="cart-area padding-top-120px padding-bottom-60px {{App::isLocale('ar') ? 'text-right' : ''}}" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -87,7 +87,7 @@
                                 <div class="input-box">
                                     <div class="form-group mb-0">
                                         <!-- Search bar -->
-                                        <input class="form-control" type="text" name="code" placeholder="Enter Coupon Code Here">
+                                        <input class="form-control" type="text" name="code" placeholder="@translate(Enter Coupon Code Here)">
                                         <input type="hidden" name="total" value="{{ onlyPrice($total_price) }}">
                                         <button type="submit" class="btn btn-primary mt-2">@translate(Apply Coupon)</button>
                                         <!-- Search bar END - -->
