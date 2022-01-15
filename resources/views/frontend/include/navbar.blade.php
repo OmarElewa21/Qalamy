@@ -272,7 +272,7 @@
                                                          alt="{{ Auth::user()->name }}"
                                                          class="avatar-sm rounded-circle">
                                                 </button>
-                                                <div class="dropdown-menu userDrop" aria-labelledby="userDropdown">
+                                                <div class="dropdown-menu {{App::isLocale('ar') ? '' : 'userDrop'}}" aria-labelledby="userDropdown">
                                                     <div class="mess-dropdown">
                                                         <div class="mess__title d-flex align-items-center">
 
@@ -444,7 +444,7 @@
                                                          alt="{{ Auth::user()->name }}"
                                                          class="avatar-sm rounded-circle">
                                                 </button>
-                                                <div class="dropdown-menu userDrop" aria-labelledby="userDropdown">
+                                                <div class="dropdown-menu {{App::isLocale('ar') ? '' : 'userDrop'}}" aria-labelledby="userDropdown">
                                                     <div class="mess-dropdown">
                                                         <div class="mess__title d-flex align-items-center">
 
@@ -582,7 +582,7 @@
                         @guest
                             <div class="logo-right-button">
                                 <ul id="custom_toggle_bar" class="d-flex">
-                                    <li class="pr-2"><a href="{{route('instructor.register')}}"
+                                    <li class="{{App::isLocale('ar') ? 'pl-2' : 'pr-2'}}"><a href="{{route('instructor.register')}}"
                                                         class="theme-btn instructor-btn">@translate(Instructor)</a></li>
                                     <li><a href="{{route('student.register')}}" class="theme-btn student-btn">@translate(Become Student)</a></li>
                                 </ul>

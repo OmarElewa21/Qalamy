@@ -65,8 +65,10 @@
         END HEADER AREA
 ======================================-->
 
+<div class="{{App::isLocale('ar') ? 'text-right' : ''}}" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
+    @yield('content')
+</div>
 
-@yield('content')
 
 
 @include('frontend.include.footer')

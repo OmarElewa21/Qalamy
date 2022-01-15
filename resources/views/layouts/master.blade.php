@@ -51,14 +51,14 @@
 
 
 <!-- Start Containerbar -->
-<div id="containerbar" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
+<div id="containerbar">
 
     <!-- Start Leftbar -->
 @include('layouts.leftsidebar')
 <!-- End Leftbar -->
 
     <!-- Start Rightbar -->
-    <div class="rightbar" style="{{(App::isLocale('ar') ? 'margin-right:250px; margin-left:0;' : 'margin-left:250px; margin-right:0;')}}">
+    <div class="rightbar">
 
         <!-- Start Topbar -->
     @include('layouts.topbar')
@@ -72,7 +72,7 @@
     <!-- End Breadcrumbbar -->
 
         <!-- Start Contentbar -->
-        <div class="contentbar">
+        <div class="contentbar {{App::isLocale('ar') ? 'text-right' : ''}}" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
 
             @yield('content')
 

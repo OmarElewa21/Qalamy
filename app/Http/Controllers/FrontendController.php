@@ -222,7 +222,7 @@ class FrontendController extends Controller
         if (env('ACTIVE_THEME') == 'frontend'){
             $course->push($top_courses->take(6));
         }
-        $cat->push('Best Selling');
+        $cat->push(__('Best Selling'));
 
         foreach (Category::Published()->where('top', 1)->get() as $item) {
             $cat->push($item->name);

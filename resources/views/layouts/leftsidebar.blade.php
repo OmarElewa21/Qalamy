@@ -9,7 +9,7 @@
                     <a href="{{route('dashboard')}}" class="logo"><img
                             src="{{filePath(getSystemSetting('type_logo')->value)}}" class="img-fluid" alt="logo"></a>
                 </div>
-                <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-content {{(App::isLocale('ar') ? 'text-right' : '')}}" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-crm" role="tabpanel"
                          aria-labelledby="v-pills-crm-tab">
                         <ul class="vertical-menu">
@@ -30,14 +30,14 @@
                                             class="{{(App::isLocale('ar') ? 'feather icon-chevron-left' : 'feather icon-chevron-right')}}"></i>
                                     </a>
                                     <ul class="vertical-submenu">
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('users.index')}}"
+                                        <li><a  href="{{route('users.index')}}"
                                                class="{{request()->is('dashboard/user*')  ?'active':null}}">@translate(Admins)</a>
                                         </li>
 
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('instructors.index')}}"
+                                        <li><a  href="{{route('instructors.index')}}"
                                                class="{{request()->is('dashboard/instructor*') ?'active':null}}">@translate(Instructors)</a>
                                         </li>
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('students.index')}}"
+                                        <li><a  href="{{route('students.index')}}"
                                                class="{{request()->is('dashboard/student*')  ?'active':null}}">@translate(Students)</a>
                                         </li>
 
@@ -48,14 +48,14 @@
 
                             <li class="{{request()->is('dashboard/media/manager*')
                                     ? 'active' : null}}">
-                                <a style="{{(App::isLocale('ar') ? 'text-align:right' : '')}}" href="javaScript:void();">
+                                <a href="javaScript:void();">
                                     <i class="fa fa-picture-o"></i>
                                     <span>@translate(Media Manager)</span><i style="{{(App::isLocale('ar') ? 'float:left' : '')}}"
                                         class="{{(App::isLocale('ar') ? 'feather icon-chevron-left' : 'feather icon-chevron-right')}}"></i>
                                 </a>
                                 <ul class="vertical-submenu">
                                     <li>
-                                        <a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('media.index')}}"
+                                        <a href="{{route('media.index')}}"
                                            class="{{request()->is('dashboard/media/manager*')
                                                 ?'active':null}}">
                                             @translate(Add Media)
@@ -80,16 +80,16 @@
                                 <ul class="vertical-submenu">
                                     @if(\Illuminate\Support\Facades\Auth::user()->user_type != "Admin")
                                         {{-- instructor's Nav --}}
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('course.create')}}"
+                                        <li><a  href="{{route('course.create')}}"
                                                class="{{request()->is('dashboard/course/create*') ?'active':null}}">@translate(Start New Course)</a></li>
                                     @else
                                         {{-- admin's Nav --}}
-                                        <li><a  style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('categories.index')}}"
+                                        <li><a   href="{{route('categories.index')}}"
                                                class="{{request()->is('dashboard/category*') ?'active':null}}">@translate(Categories)</a>
                                         </li>
                                     @endif
 
-                                    <li><a  style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('course.index')}}"
+                                    <li><a   href="{{route('course.index')}}"
                                            class="{{request()->is('dashboard/course/index*') ?'active':null}}">@translate(All Courses) @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Admin")
                                                 <sup
                                                     class="badge badge-info">{{\App\Model\Course::where('is_published',false)->count() > 0 ? \App\Model\Course::where('is_published',false)->count():null}}</sup>
@@ -111,14 +111,14 @@
                                     </a>
                                     <ul class="vertical-submenu">
                                         <li>
-                                            <a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('coupon.index')}}"
+                                            <a  href="{{route('coupon.index')}}"
                                                class="{{request()->is('dashboard/coupon/new')
                                                     ?'active':null}}">
                                                 @translate(New Coupon)
                                             </a>
                                         </li>
                                         <li>
-                                            <a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('coupon.all')}}"
+                                            <a  href="{{route('coupon.all')}}"
                                                class="{{request()->is('dashboard/coupons')
                                                     ?'active':null}}">
                                                 @translate(All Coupons)
@@ -145,21 +145,21 @@
                                     </a>
                                     <ul class="vertical-submenu">
                                         <li>
-                                            <a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('zoom.setting')}}"
+                                            <a  href="{{route('zoom.setting')}}"
                                                class="{{request()->is('dashboard/zoom/setting*')
                                                     ?'active':null}}">
                                                 @translate(Zoom Setup)
                                             </a>
                                         </li>
                                         <li>
-                                            <a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('zoom.index')}}"
+                                            <a  href="{{route('zoom.index')}}"
                                                class="{{request()->is('dashboard/zoom/board*')
                                                     ?'active':null}}">
                                                 @translate(Zoom Dashboard)
                                             </a>
                                         </li>
                                         <li>
-                                            <a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('meeting.create')}}"
+                                            <a  href="{{route('meeting.create')}}"
                                                class="{{request()->is('dashboard/zoom/create/meeting*')
                                                     ?'active':null}}">
                                                 @translate(Create Meeting)
@@ -182,9 +182,9 @@
                                     </a>
                                     <ul class="vertical-submenu">
                                         {{-- instructor's Nav --}}
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}"  href="{{route('quiz.create')}}"
+                                        <li><a   href="{{route('quiz.create')}}"
                                                class="{{request()->is('dashboard/quiz/create*') ?'active':null}}">@translate(Quiz Create)</a></li>
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('quiz.list')}}"
+                                        <li><a  href="{{route('quiz.list')}}"
                                                class="{{request()->is('dashboard/quiz/list*') || request()->is('dashboard/quiz/questions*')  ?'active':null}}">@translate(Quiz List)</a></li>
                                     </ul>
                                 </li>
@@ -230,12 +230,12 @@
 
                             @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Instructor")
 
-                                <li><a style="{{(App::isLocale('ar') ? 'text-align:right' : '')}}" href="{{route('students.index')}}"
+                                <li><a href="{{route('students.index')}}"
                                        class="{{request()->is('dashboard/students*')  || request()->is('student*')?'active':null}}">
                                         <i class="fa fa-users"></i> <span>@translate(Students)</span></a>
                                 </li>
                                 {{-- Message with student --}}
-                                <li><a style="{{(App::isLocale('ar') ? 'text-align:right' : '')}}" href="{{route('messages.index')}}"
+                                <li><a href="{{route('messages.index')}}"
                                        class="{{request()->is('dashboard/message*') ?'active':null}}">
                                         <i class="fa fa-envelope-o"></i> <span>@translate(Messages)</span>
                                     </a>
@@ -359,34 +359,34 @@
                                 </a>
                                 <ul class="vertical-submenu">
                                     @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Admin")
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('app.setting')}}"
+                                        <li><a  href="{{route('app.setting')}}"
                                                class="{{request()->is('dashboard/app*') ?'active':null}}">@translate(Gateway Settings)</a></li>
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('currencies.index')}}"
+                                        <li><a  href="{{route('currencies.index')}}"
                                                class="{{request()->is('dashboard/currency*') ?'active':null}}">@translate(Currency Settings)</a>
                                         </li>
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('language.index')}}"
+                                        <li><a  href="{{route('language.index')}}"
                                                class="{{request()->is('dashboard/language*') ?'active':null}}">@translate(Language Settings)</a></li>
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('smtp.create')}}"
+                                        <li><a  href="{{route('smtp.create')}}"
                                                class="{{request()->is('dashboard/smtp*') ?'active':null}}">@translate(SMTP Settings)</a></li>
 
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('sliders.index')}}"
+                                        <li><a  href="{{route('sliders.index')}}"
                                                class="{{request()->is('dashboard/slider*') ?'active':null}}">@translate(Slider Settings)</a></li>
 
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('pages.index')}}"
+                                        <li><a  href="{{route('pages.index')}}"
                                                class="{{request()->is('dashboard/pages*') ?'active':null}}">@translate(Pages)</a>
                                         </li>
 
 
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('site.setting')}}"
+                                        <li><a  href="{{route('site.setting')}}"
                                                class="{{request()->is('dashboard/site*') ?'active':null}}">@translate(Organization Settings)</a></li>
 
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('other.setting')}}"
+                                        <li><a  href="{{route('other.setting')}}"
                                                class="{{request()->is('dashboard/other*') ?'active':null}}">@translate(Other Settings)</a></li>
 
 
                                     @else
                                         {{-- Instructor Earning area --}}
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('account.create')}}"
+                                        <li><a  href="{{route('account.create')}}"
                                                class="{{request()->is('dashboard/account*') ?'active':null}}">@translate(Payment Account Setup)
                                             </a>
                                         </li>
@@ -405,13 +405,13 @@
                                         class="{{(App::isLocale('ar') ? 'feather icon-chevron-left' : 'feather icon-chevron-right')}}"></i>
                                         </a>
                                         <ul class="vertical-submenu">
-                                            <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('forum.panel')}}"
+                                            <li><a  href="{{route('forum.panel')}}"
                                                    class="{{request()->is('dashboard/forum/panel*') ?'active':null}}">@translate(Forum Posts)</a></li>
 
-                                            <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('forum.replies')}}"
+                                            <li><a  href="{{route('forum.replies')}}"
                                                    class="{{request()->is('dashboard/forum/replies*') ?'active':null}}">@translate(Forum Replies)</a></li>
 
-                                            <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('forum.index')}}" target="_blank">@translate(Browse Forum)</a></li>
+                                            <li><a  href="{{route('forum.index')}}" target="_blank">@translate(Browse Forum)</a></li>
                                         </ul>
                                     </li>
                                 @endif
@@ -433,7 +433,7 @@
                                             @if(adminPower())
 
                                                 <li>
-                                                    <a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('subscription.index')}}"
+                                                    <a  href="{{route('subscription.index')}}"
                                                        class="{{request()->is('dashboard/subscription') || request()->is('dashboard/subscription/package/courses*') ? 'active':null}}">
                                                         @translate(Packages)
                                                     </a>
@@ -441,7 +441,7 @@
 
                                                 @if(enableCourse())
                                                     <li>
-                                                        <a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('subscription.courses')}}"
+                                                        <a  href="{{route('subscription.courses')}}"
                                                            class="{{request()->is('dashboard/subscription/courses') ?'active':null}}">
                                                             @translate(Courses)
                                                         </a>
@@ -539,7 +539,7 @@
                                         </a>
                                         <ul class="vertical-submenu">
                                             <li>
-                                                <a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{route('dashboard.wallet')}}"
+                                                <a  href="{{route('dashboard.wallet')}}"
                                                    class="{{request()->is('dashboard/wallet') ?'active':null}}">
                                                    @translate(Wallet Options)
                                                 </a>
@@ -572,7 +572,7 @@
                                         class="{{(App::isLocale('ar') ? 'feather icon-chevron-left' : 'feather icon-chevron-right')}}"></i>
                                     </a>
                                     <ul class="vertical-submenu">
-                                        <li><a style="{{(App::isLocale('ar') ? 'text-align:center' : '')}}" href="{{ url('/activity') }}"
+                                        <li><a  href="{{ url('/activity') }}"
                                                class="{{request()->is('/activity*') ?'active':null}}">@translate(Logs)</a>
                                         </li>
                                     </ul>
@@ -591,3 +591,17 @@
     </div>
     <!-- End Sidebar -->
 </div>
+
+@if (App::isLocale('ar'))
+    <style>
+        @media screen and (min-width: 815px){
+            .rightbar{
+                margin-right:250px;
+                margin-left:0;
+            }
+            #containerbar {
+                direction:rtl;
+            }
+        
+    </style>
+@endif

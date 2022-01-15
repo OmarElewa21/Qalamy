@@ -163,7 +163,7 @@
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col-9">
-                    <h5 class="card-title mb-0">@translate(This Year Revenue)</h5>
+                    <h5 class="card-title mb-0 {{App::isLocale('ar') ? 'text-right' : ''}}">@translate(This Year Revenue)</h5>
                 </div>
             </div>
         </div>

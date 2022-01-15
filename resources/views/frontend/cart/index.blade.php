@@ -4,7 +4,7 @@
     <!-- ================================
       START CART AREA
   ================================= -->
-    <section class="cart-area padding-top-120px padding-bottom-60px {{App::isLocale('ar') ? 'text-right' : ''}}" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
+    <section class="cart-area padding-top-120px padding-bottom-60px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

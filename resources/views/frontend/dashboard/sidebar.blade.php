@@ -42,3 +42,17 @@
         <!-- end side-menu-wrap -->
     </div>
 </div><!-- end dashboard-sidebar -->
+
+@if (App::isLocale('ar'))
+    <style>
+        @media screen and (min-width: 815px){
+            .user-nav-container, .dashboard-nav-container{
+                left: 80% !important;
+            }
+            .dashboard-content-wrap .container-fluid{
+                position: relative;
+                right: 28%;
+            }
+        }
+    </style>
+@endif
