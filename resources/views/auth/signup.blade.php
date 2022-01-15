@@ -234,7 +234,7 @@
                                                         <input
                                                             class="form-control @error('confirmed') is-invalid @enderror"
                                                             type="password" name="confirmed"
-                                                            placeholder="{{__(Confirm password)}}" required>
+                                                            placeholder="@translate(Confirm password)" required>
                                                         <span class="la la-lock input-icon"></span>
 
                                                         @error('confirmed')
